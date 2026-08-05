@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dayman Tent Rental & Event Planning | Thika, Kenya</title>
+<title>Dayman Tent Rental &amp; Event Planning | Thika, Kenya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,7 @@ nav {
     cursor: pointer;
     font-family: inherit;
     padding: 0;
+    display: inline-block;
 }
 .read-more:hover { color: #A67C52; }
 
@@ -320,7 +321,7 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
 .contact-item i { color: var(--accent); width: 20px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
 .divider { width: 50px; height: 3px; background: var(--accent); margin: 1rem 0; }
-.footer-link { color: inherit; text-decoration: none; }
+.footer-link { color: inherit; text-decoration: none; background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit; padding: 0; }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
@@ -351,7 +352,7 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
 <div id="view-home">
 
     <nav>
-        <a href="#" class="logo" onclick="goHome(event)">Dayman</a>
+        <a href="#" class="logo" id="logoHomeLink">Dayman</a>
         <ul class="nav-menu">
             <li><a href="#about">About</a></li>
             <li><a href="#tents">Tents</a></li>
@@ -368,7 +369,7 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Dayman Tent Rental & Event Planning</h1>
+            <h1>Dayman Tent Rental &amp; Event Planning</h1>
             <p>Create Unforgettable Moments in Thika, Kiambu</p>
             <a href="#tents" class="hero-btn">Explore Our Tents</a>
         </div>
@@ -399,7 +400,7 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
             </div>
             <div class="service-card">
                 <div class="service-icon">🎨</div>
-                <h3>Decoration & Styling</h3>
+                <h3>Decoration &amp; Styling</h3>
                 <p>Transform your tent with professional decorations, lighting, and interior design.</p>
             </div>
             <div class="service-card">
@@ -409,7 +410,7 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
             </div>
             <div class="service-card">
                 <div class="service-icon">🪑</div>
-                <h3>Furniture & Rental</h3>
+                <h3>Furniture &amp; Rental</h3>
                 <p>Tables, chairs, and event furniture to complement your tent experience.</p>
             </div>
             <div class="service-card">
@@ -475,51 +476,52 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Dayman Tent Rental & Event Planning. All rights reserved. | Serving Thika & Kiambu with Excellence</p>
+            <p>&copy; 2024 Dayman Tent Rental &amp; Event Planning. All rights reserved. | Serving Thika &amp; Kiambu with Excellence</p>
         </div>
     </footer>
 
 </div>
+
 <!-- ======================================================= -->
-<!-- EVENT DETAIL VIEW -->
+<!-- TENT DETAIL VIEW -->
 <!-- ======================================================= -->
-<div id="view-event" class="hidden">
+<div id="view-tent" class="hidden">
     <header class="detail-header">
-        <a href="#" class="logo" onclick="goHome(event)">Dayman</a>
+        <a href="#" class="logo tent-home-link">Dayman</a>
     </header>
 
-    <section class="detail-hero" id="eventHero">
-        <div class="detail-hero-overlay"><h1 id="eventTitle">Loading event…</h1></div>
+    <section class="detail-hero" id="tentHero">
+        <div class="detail-hero-overlay"><h1 id="tentTitle">Loading tent...</h1></div>
     </section>
 
     <section class="detail-breakdown">
-        <p class="detail-breakdown-intro" id="eventDescription"></p>
+        <p class="detail-breakdown-intro" id="tentDescription"></p>
         <div class="detail-stats">
             <div class="detail-stat">
-                <div class="stat-icon"><i class="fas fa-campground"></i></div>
-                <div class="stat-label">Tents Used</div>
-                <div class="stat-value" id="eventTents">—</div>
-            </div>
-            <div class="detail-stat">
-                <div class="stat-icon"><i class="fas fa-chair"></i></div>
-                <div class="stat-label">Chairs Provided</div>
-                <div class="stat-value" id="eventChairs">—</div>
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-label">Capacity</div>
+                <div class="stat-value" id="tentCapacity">-</div>
             </div>
             <div class="detail-stat">
                 <div class="stat-icon"><i class="fas fa-ruler-combined"></i></div>
-                <div class="stat-label">Space Required</div>
-                <div class="stat-value" id="eventSpace">—</div>
+                <div class="stat-label">Tent Size</div>
+                <div class="stat-value" id="tentSize">-</div>
+            </div>
+            <div class="detail-stat">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-label">Best For</div>
+                <div class="stat-value" id="tentBestFor">-</div>
             </div>
         </div>
         <div class="detail-price">
-            <div class="stat-label">Total Price Paid</div>
-            <div class="price-value" id="eventPrice">—</div>
+            <div class="stat-label">Starting From</div>
+            <div class="price-value" id="tentPrice">-</div>
         </div>
         <div class="detail-cta">
-            <a href="#" class="whatsapp-btn" id="eventWhatsappBtn">
-                <i class="fab fa-whatsapp"></i> Plan a Similar Event
+            <a href="#" class="whatsapp-btn" id="tentWhatsappBtn">
+                <i class="fab fa-whatsapp"></i> Enquire About This Tent
             </a>
-            <button class="detail-back-link" onclick="goHomeToSection('portfolio')">← Back to all past events</button>
+            <button class="detail-back-link" data-target="tents">← Back to all tents</button>
         </div>
     </section>
 
@@ -533,10 +535,10 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <div class="divider"></div>
-                <p><button class="footer-link read-more" onclick="goHomeToSection('about')">About Us</button></p>
-                <p><button class="footer-link read-more" onclick="goHomeToSection('tents')">Our Tents</button></p>
-                <p><button class="footer-link read-more" onclick="goHomeToSection('services')">Services</button></p>
-                <p><button class="footer-link read-more" onclick="goHomeToSection('portfolio')">Past Events</button></p>
+                <p><button class="footer-link" data-target="about">About Us</button></p>
+                <p><button class="footer-link" data-target="tents">Our Tents</button></p>
+                <p><button class="footer-link" data-target="services">Services</button></p>
+                <p><button class="footer-link" data-target="portfolio">Past Events</button></p>
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>
@@ -555,292 +557,469 @@ footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Dayman Tent Rental & Event Planning. All rights reserved. | Serving Thika & Kiambu with Excellence</p>
+            <p>&copy; 2024 Dayman Tent Rental &amp; Event Planning. All rights reserved. | Serving Thika &amp; Kiambu with Excellence</p>
+        </div>
+    </footer>
+    </div>    
+<!-- ======================================================= -->
+<!-- EVENT DETAIL VIEW -->
+<!-- ======================================================= -->
+<div id="view-event" class="hidden">
+    <header class="detail-header">
+        <a href="#" class="logo event-home-link">Dayman</a>
+    </header>
+
+    <section class="detail-hero" id="eventHero">
+        <div class="detail-hero-overlay"><h1 id="eventTitle">Loading event...</h1></div>
+    </section>
+
+    <section class="detail-breakdown">
+        <p class="detail-breakdown-intro" id="eventDescription"></p>
+        <div class="detail-stats">
+            <div class="detail-stat">
+                <div class="stat-icon"><i class="fas fa-campground"></i></div>
+                <div class="stat-label">Tents Used</div>
+                <div class="stat-value" id="eventTents">-</div>
+            </div>
+            <div class="detail-stat">
+                <div class="stat-icon"><i class="fas fa-chair"></i></div>
+                <div class="stat-label">Chairs Provided</div>
+                <div class="stat-value" id="eventChairs">-</div>
+            </div>
+            <div class="detail-stat">
+                <div class="stat-icon"><i class="fas fa-ruler-combined"></i></div>
+                <div class="stat-label">Space Required</div>
+                <div class="stat-value" id="eventSpace">-</div>
+            </div>
+        </div>
+        <div class="detail-price">
+            <div class="stat-label">Total Price Paid</div>
+            <div class="price-value" id="eventPrice">-</div>
+        </div>
+        <div class="detail-cta">
+            <a href="#" class="whatsapp-btn" id="eventWhatsappBtn">
+                <i class="fab fa-whatsapp"></i> Plan a Similar Event
+            </a>
+            <button class="detail-back-link" data-target="portfolio">← Back to all past events</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">Dayman</div>
+                <div class="divider"></div>
+                <p>Premium tent rental and event planning services serving Thika and Kiambu with excellence and professionalism.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="divider"></div>
+                <p><button class="footer-link" data-target="about">About Us</button></p>
+                <p><button class="footer-link" data-target="tents">Our Tents</button></p>
+                <p><button class="footer-link" data-target="services">Services</button></p>
+                <p><button class="footer-link" data-target="portfolio">Past Events</button></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="divider"></div>
+                <div class="footer-contact">
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Thika, Kiambu, Kenya</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@daymanrental.com" class="footer-link">info@daymanrental.com</a></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:+254712345678" class="footer-link">+254 712 345 678</a></div>
+                </div>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dayman Tent Rental &amp; Event Planning. All rights reserved. | Serving Thika &amp; Kiambu with Excellence</p>
         </div>
     </footer>
 </div>
 
 <script>
-const WHATSAPP_NUMBER = "254712345678"; // placeholder — swap for the real business number
+(function () {
+    "use strict";
 
-/* ---------------- DATA ---------------- */
-const TENTS = [
-  {
-    slug: "bell-tents",
-    name: "Bell Tents",
-    heroImage: "https://images.unsplash.com/photo-1519457031057-7686c3aa7d5e?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519457031057-7686c3aa7d5e?w=400&h=300&fit=crop",
-    capacity: "Up to 40 guests",
-    size: "4m – 6m diameter",
-    bestFor: "Intimate & boho weddings",
-    priceFrom: "KSh 25,000",
-    description: "Our bell tents bring rustic elegance to any occasion — a classic canvas silhouette that pairs beautifully with fairy lights, florals, and low, relaxed seating. A favourite for intimate ceremonies and garden parties."
-  },
-  {
-    slug: "marquee-tents",
-    name: "Marquee Tents",
-    heroImage: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=400&h=300&fit=crop",
-    capacity: "Up to 500 guests",
-    size: "10m – 40m span",
-    bestFor: "Large weddings & corporate events",
-    priceFrom: "KSh 120,000",
-    description: "Spacious and versatile, our marquee tents are built for scale — clear-span structures that give you full flexibility for staging, dance floors, and banquet seating at your biggest celebrations."
-  },
-  {
-    slug: "garden-tents",
-    name: "Garden Tents",
-    heroImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&h=300&fit=crop",
-    capacity: "Up to 100 guests",
-    size: "8m – 15m span",
-    bestFor: "Garden parties & outdoor receptions",
-    priceFrom: "KSh 60,000",
-    description: "Lightweight and elegant, our garden tents let the outdoors take centre stage while still offering full shade and weather protection — perfect for daytime receptions and open-air dinners."
-  },
-  {
-    slug: "stretch-tents",
-    name: "Stretch Tents",
-    heroImage: "https://images.unsplash.com/photo-1519168434024-3a91228692db?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519168434024-3a91228692db?w=400&h=300&fit=crop",
-    capacity: "Up to 150 guests",
-    size: "Custom fabric spans",
-    bestFor: "Modern, contemporary events",
-    priceFrom: "KSh 85,000",
-    description: "Sweeping fabric lines and a strikingly modern silhouette make our stretch tents the choice for design-forward clients — ideal for trendy launches, fashion events, and statement celebrations."
-  }
-];
+    var WHATSAPP_NUMBER = "254712345678"; // placeholder - swap for the real business number
 
-const EVENTS = [
-  {
-    slug: "graduation-gala-thika-2025",
-    title: "Graduation Gala",
-    location: "Thika",
-    year: 2025,
-    heroImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=500&h=400&fit=crop",
-    tents: "Marquee + Garden Tents",
-    chairs: "300 Banquet Chairs",
-    space: "500 sqm outdoor setup",
-    price: "KSh 350,000",
-    description: "An elegant graduation gala for 300 guests, styled with premium décor, ambient lighting, and a dance floor centerpiece."
-  },
-  {
-    slug: "garden-wedding-kiambu-2024",
-    title: "Garden Wedding",
-    location: "Kiambu",
-    year: 2024,
-    heroImage: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&h=400&fit=crop",
-    tents: "Bell Tent + Garden Tent",
-    chairs: "150 Chiavari Chairs",
-    space: "350 sqm garden layout",
-    price: "KSh 280,000",
-    description: "A romantic outdoor wedding for 150 guests, featuring floral installations and soft string lighting under a bell tent canopy."
-  },
-  {
-    slug: "corporate-launch-thika-2024",
-    title: "Corporate Product Launch",
-    location: "Thika",
-    year: 2024,
-    heroImage: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=500&h=400&fit=crop",
-    tents: "Marquee Tent",
-    chairs: "200 Conference Chairs",
-    space: "400 sqm event floor",
-    price: "KSh 310,000",
-    description: "A professional product launch for a growing tech company, complete with branded staging, AV setup, and a networking lounge."
-  },
-  {
-    slug: "birthday-celebration-ruiru-2025",
-    title: "50th Birthday Celebration",
-    location: "Ruiru",
-    year: 2025,
-    heroImage: "https://images.unsplash.com/photo-1519167758993-7e9b65eaa1b6?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519167758993-7e9b65eaa1b6?w=500&h=400&fit=crop",
-    tents: "Stretch Tent",
-    chairs: "120 Banquet Chairs",
-    space: "250 sqm backyard setup",
-    price: "KSh 190,000",
-    description: "An intimate milestone birthday party with a modern stretch tent, warm lighting, and personalized table styling."
-  },
-  {
-    slug: "traditional-wedding-thika-2024",
-    title: "Traditional Wedding Ceremony",
-    location: "Thika",
-    year: 2024,
-    heroImage: "https://images.unsplash.com/photo-1519529228881-b907d868fd37?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519529228881-b907d868fd37?w=500&h=400&fit=crop",
-    tents: "Marquee + Bell Tents",
-    chairs: "400 Banquet Chairs",
-    space: "600 sqm ceremony ground",
-    price: "KSh 420,000",
-    description: "A large traditional ceremony blending cultural staging with modern comfort for 400 guests across two connected tents."
-  },
-  {
-    slug: "product-showcase-nairobi-2025",
-    title: "Product Showcase Weekend",
-    location: "Nairobi",
-    year: 2025,
-    heroImage: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=1400&h=700&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=500&h=400&fit=crop",
-    tents: "Garden Tent",
-    chairs: "80 Lounge Chairs",
-    space: "180 sqm showcase area",
-    price: "KSh 145,000",
-    description: "A boutique weekend showcase with a garden tent setup, lounge seating, and soft daylight-friendly styling."
-  }
-];
+    /* ---------------- DATA ---------------- */
+    var TENTS = [
+        {
+            slug: "bell-tents",
+            name: "Bell Tents",
+            heroImage: "https://images.unsplash.com/photo-1519457031057-7686c3aa7d5e?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519457031057-7686c3aa7d5e?w=400&h=300&fit=crop",
+            capacity: "Up to 40 guests",
+            size: "4m to 6m diameter",
+            bestFor: "Intimate and boho weddings",
+            priceFrom: "KSh 25,000",
+            shortDescription: "Classic elegance with modern comfort.",
+            description: "Our bell tents bring rustic elegance to any occasion. A classic canvas silhouette that pairs beautifully with fairy lights, florals, and low, relaxed seating. A favourite for intimate ceremonies and garden parties."
+        },
+        {
+            slug: "marquee-tents",
+            name: "Marquee Tents",
+            heroImage: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=400&h=300&fit=crop",
+            capacity: "Up to 500 guests",
+            size: "10m to 40m span",
+            bestFor: "Large weddings and corporate events",
+            priceFrom: "KSh 120,000",
+            shortDescription: "Spacious and versatile for large celebrations.",
+            description: "Spacious and versatile, our marquee tents are built for scale. Clear-span structures give you full flexibility for staging, dance floors, and banquet seating at your biggest celebrations."
+        },
+        {
+            slug: "garden-tents",
+            name: "Garden Tents",
+            heroImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&h=300&fit=crop",
+            capacity: "Up to 100 guests",
+            size: "8m to 15m span",
+            bestFor: "Garden parties and outdoor receptions",
+            priceFrom: "KSh 60,000",
+            shortDescription: "Lightweight and elegant for outdoor events.",
+            description: "Lightweight and elegant, our garden tents let the outdoors take centre stage while still offering full shade and weather protection. Perfect for daytime receptions and open-air dinners."
+        },
+        {
+            slug: "stretch-tents",
+            name: "Stretch Tents",
+            heroImage: "https://images.unsplash.com/photo-1519168434024-3a91228692db?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519168434024-3a91228692db?w=400&h=300&fit=crop",
+            capacity: "Up to 150 guests",
+            size: "Custom fabric spans",
+            bestFor: "Modern, contemporary events",
+            priceFrom: "KSh 85,000",
+            shortDescription: "Modern design with stunning visual impact.",
+            description: "Sweeping fabric lines and a strikingly modern silhouette make our stretch tents the choice for design-forward clients. Ideal for trendy launches, fashion events, and statement celebrations."
+        }
+    ];
 
-/* ---------------- RENDER: TENTS GRID (home) ---------------- */
-const tentGrid = document.getElementById('tentGrid');
-TENTS.forEach(t => {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-    item.innerHTML = `
-        <div class="gallery-img" style="background-image:url('${t.thumbnail}')"></div>
-        <div class="gallery-content">
-            <h3>${t.name}</h3>
-            <p>${t.description.split('.')[0]}.</p>
-            <button class="read-more" onclick="location.hash='tent=${t.slug}'">Learn More →</button>
-        </div>
-    `;
-    tentGrid.appendChild(item);
-});
+    var EVENTS = [
+        {
+            slug: "graduation-gala-thika-2025",
+            title: "Graduation Gala",
+            location: "Thika",
+            year: 2025,
+            heroImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=500&h=400&fit=crop",
+            tents: "Marquee + Garden Tents",
+            chairs: "300 Banquet Chairs",
+            space: "500 sqm outdoor setup",
+            price: "KSh 350,000",
+            description: "An elegant graduation gala for 300 guests, styled with premium decor, ambient lighting, and a dance floor centerpiece."
+        },
+        {
+            slug: "garden-wedding-kiambu-2024",
+            title: "Garden Wedding",
+            location: "Kiambu",
+            year: 2024,
+            heroImage: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&h=400&fit=crop",
+            tents: "Bell Tent + Garden Tent",
+            chairs: "150 Chiavari Chairs",
+            space: "350 sqm garden layout",
+            price: "KSh 280,000",
+            description: "A romantic outdoor wedding for 150 guests, featuring floral installations and soft string lighting under a bell tent canopy."
+        },
+        {
+            slug: "corporate-launch-thika-2024",
+            title: "Corporate Product Launch",
+            location: "Thika",
+            year: 2024,
+            heroImage: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=500&h=400&fit=crop",
+            tents: "Marquee Tent",
+            chairs: "200 Conference Chairs",
+            space: "400 sqm event floor",
+            price: "KSh 310,000",
+            description: "A professional product launch for a growing tech company, complete with branded staging, AV setup, and a networking lounge."
+        },
+        {
+            slug: "birthday-celebration-ruiru-2025",
+            title: "50th Birthday Celebration",
+            location: "Ruiru",
+            year: 2025,
+            heroImage: "https://images.unsplash.com/photo-1519167758993-7e9b65eaa1b6?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519167758993-7e9b65eaa1b6?w=500&h=400&fit=crop",
+            tents: "Stretch Tent",
+            chairs: "120 Banquet Chairs",
+            space: "250 sqm backyard setup",
+            price: "KSh 190,000",
+            description: "An intimate milestone birthday party with a modern stretch tent, warm lighting, and personalized table styling."
+        },
+        {
+            slug: "traditional-wedding-thika-2024",
+            title: "Traditional Wedding Ceremony",
+            location: "Thika",
+            year: 2024,
+            heroImage: "https://images.unsplash.com/photo-1519529228881-b907d868fd37?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519529228881-b907d868fd37?w=500&h=400&fit=crop",
+            tents: "Marquee + Bell Tents",
+            chairs: "400 Banquet Chairs",
+            space: "600 sqm ceremony ground",
+            price: "KSh 420,000",
+            description: "A large traditional ceremony blending cultural staging with modern comfort for 400 guests across two connected tents."
+        },
+        {
+            slug: "product-showcase-nairobi-2025",
+            title: "Product Showcase Weekend",
+            location: "Nairobi",
+            year: 2025,
+            heroImage: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=1400&h=700&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1519191033100-9105061dd5a7?w=500&h=400&fit=crop",
+            tents: "Garden Tent",
+            chairs: "80 Lounge Chairs",
+            space: "180 sqm showcase area",
+            price: "KSh 145,000",
+            description: "A boutique weekend showcase with a garden tent setup, lounge seating, and soft daylight-friendly styling."
+        }
+    ];
+
+    /* ---------------- RENDER: TENTS GRID (home) ---------------- */
+    var tentGrid = document.getElementById("tentGrid");
+
+    for (var ti = 0; ti < TENTS.length; ti++) {
+        (function (t) {
+            var item = document.createElement("div");
+            item.className = "gallery-item";
+
+            var img = document.createElement("div");
+            img.className = "gallery-img";
+            img.style.backgroundImage = "url('" + t.thumbnail + "')";
+
+            var content = document.createElement("div");
+            content.className = "gallery-content";
+
+            var h3 = document.createElement("h3");
+            h3.textContent = t.name;
+
+            var p = document.createElement("p");
+            p.textContent = t.shortDescription;
+
+            var btn = document.createElement("button");
+            btn.className = "read-more";
+            btn.type = "button";
+            btn.textContent = "Learn More \u2192";
+            btn.addEventListener("click", function () {
+                window.location.hash = "tent=" + t.slug;
+            });
+
+            content.appendChild(h3);
+            content.appendChild(p);
+            content.appendChild(btn);
+            item.appendChild(img);
+            item.appendChild(content);
+            tentGrid.appendChild(item);
+        })(TENTS[ti]);
+    }
+
     /* ---------------- RENDER: PAST EVENTS CAROUSEL (home) ---------------- */
-const track = document.getElementById('carouselTrack');
-EVENTS.forEach(ev => {
-    const card = document.createElement('a');
-    card.className = 'carousel-card';
-    card.href = `#event=${ev.slug}`;
-    card.innerHTML = `
-        <div class="carousel-img" style="background-image:url('${ev.thumbnail}')"></div>
-        <div class="carousel-card-body">
-            <span class="eyebrow">${ev.location} · ${ev.year}</span>
-            <h3>${ev.title}</h3>
-            <p>${ev.tents} · ${ev.chairs}</p>
-        </div>
-    `;
-    track.appendChild(card);
-});
+    var track = document.getElementById("carouselTrack");
 
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-function cardScrollAmount() {
-    const card = track.querySelector('.carousel-card');
-    if (!card) return 300;
-    const gap = parseFloat(getComputedStyle(track).gap) || 28;
-    return card.offsetWidth + gap;
-}
-nextBtn.addEventListener('click', () => {
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    if (track.scrollLeft >= maxScroll - 5) track.scrollTo({ left: 0, behavior: 'smooth' });
-    else track.scrollBy({ left: cardScrollAmount(), behavior: 'smooth' });
-});
-prevBtn.addEventListener('click', () => {
-    if (track.scrollLeft <= 5) track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
-    else track.scrollBy({ left: -cardScrollAmount(), behavior: 'smooth' });
-});
-let autoplay = setInterval(() => nextBtn.click(), 5000);
-track.addEventListener('mouseenter', () => clearInterval(autoplay));
-track.addEventListener('mouseleave', () => { autoplay = setInterval(() => nextBtn.click(), 5000); });
+    for (var ei = 0; ei < EVENTS.length; ei++) {
+        (function (ev) {
+            var card = document.createElement("a");
+            card.className = "carousel-card";
+            card.href = "#event=" + ev.slug;
 
-/* ---------------- MOBILE MENU ---------------- */
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.querySelector('.nav-menu');
-menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => navMenu.classList.remove('active'));
-});
+            var img = document.createElement("div");
+            img.className = "carousel-img";
+            img.style.backgroundImage = "url('" + ev.thumbnail + "')";
 
-/* ---------------- POPULATE TENT DETAIL VIEW ---------------- */
-function showTent(slug) {
-    const t = TENTS.find(x => x.slug === slug);
-    const hero = document.getElementById('tentHero');
-    if (t) {
-        document.title = `${t.name} | Dayman Tent Rental`;
-        document.getElementById('tentTitle').textContent = t.name;
-        document.getElementById('tentDescription').textContent = t.description;
-        document.getElementById('tentCapacity').textContent = t.capacity;
-        document.getElementById('tentSize').textContent = t.size;
-        document.getElementById('tentBestFor').textContent = t.bestFor;
-        document.getElementById('tentPrice').textContent = t.priceFrom;
-        hero.style.backgroundImage = `url('${t.heroImage}')`;
-        const message = `Hi Dayman, I'd like to enquire about renting the ${t.name}.`;
-        document.getElementById('tentWhatsappBtn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    } else {
-        document.title = 'Tent Not Found | Dayman Tent Rental';
-        document.getElementById('tentTitle').textContent = 'Tent Not Found';
-        document.getElementById('tentDescription').textContent = "We couldn't find that tent. Browse our full collection below.";
-        hero.style.backgroundImage = "url('https://images.unsplash.com/photo-1519457031057-7686c3aa7d5e?w=1400&h=700&fit=crop')";
+            var body = document.createElement("div");
+            body.className = "carousel-card-body";
+
+            var eyebrow = document.createElement("span");
+            eyebrow.className = "eyebrow";
+            eyebrow.textContent = ev.location + " \u00B7 " + ev.year;
+
+            var h3 = document.createElement("h3");
+            h3.textContent = ev.title;
+
+            var p = document.createElement("p");
+            p.textContent = ev.tents + " \u00B7 " + ev.chairs;
+
+            body.appendChild(eyebrow);
+            body.appendChild(h3);
+            body.appendChild(p);
+            card.appendChild(img);
+            card.appendChild(body);
+            track.appendChild(card);
+        })(EVENTS[ei]);
     }
-}
 
-/* ---------------- POPULATE EVENT DETAIL VIEW ---------------- */
-function showEvent(slug) {
-    const ev = EVENTS.find(x => x.slug === slug);
-    const hero = document.getElementById('eventHero');
-    if (ev) {
-        document.title = `${ev.title} | Dayman Tent Rental`;
-        document.getElementById('eventTitle').textContent = `${ev.title} – ${ev.location} ${ev.year}`;
-        document.getElementById('eventDescription').textContent = ev.description;
-        document.getElementById('eventTents').textContent = ev.tents;
-        document.getElementById('eventChairs').textContent = ev.chairs;
-        document.getElementById('eventSpace').textContent = ev.space;
-        document.getElementById('eventPrice').textContent = ev.price;
-        hero.style.backgroundImage = `url('${ev.heroImage}')`;
-        const message = `Hi Dayman, I'd like a ${ev.title} setup similar to the one on your site.`;
-        document.getElementById('eventWhatsappBtn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    } else {
-        document.title = 'Event Not Found | Dayman Tent Rental';
-        document.getElementById('eventTitle').textContent = 'Event Not Found';
-        document.getElementById('eventDescription').textContent = "We couldn't find that event. Browse our other past events below.";
-        hero.style.backgroundImage = "url('https://images.unsplash.com/photo-1519167758993-7e9b65eaa1b6?w=1400&h=700&fit=crop')";
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+
+    function cardScrollAmount() {
+        var card = track.querySelector(".carousel-card");
+        if (!card) return 300;
+        var gap = parseFloat(getComputedStyle(track).gap) || 28;
+        return card.offsetWidth + gap;
     }
-}
 
-/* ---------------- ROUTER ---------------- */
-const viewHome = document.getElementById('view-home');
-const viewTent = document.getElementById('view-tent');
-const viewEvent = document.getElementById('view-event');
+    nextBtn.addEventListener("click", function () {
+        var maxScroll = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= maxScroll - 5) {
+            track.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+            track.scrollBy({ left: cardScrollAmount(), behavior: "smooth" });
+        }
+    });
 
-function route() {
-    const hash = window.location.hash.slice(1);
-    viewHome.classList.add('hidden');
-    viewTent.classList.add('hidden');
-    viewEvent.classList.add('hidden');
+    prevBtn.addEventListener("click", function () {
+        if (track.scrollLeft <= 5) {
+            track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+        } else {
+            track.scrollBy({ left: -cardScrollAmount(), behavior: "smooth" });
+        }
+    });
 
-    if (hash.startsWith('tent=')) {
-        showTent(decodeURIComponent(hash.slice(5)));
-        viewTent.classList.remove('hidden');
-        window.scrollTo(0, 0);
-    } else if (hash.startsWith('event=')) {
-        showEvent(decodeURIComponent(hash.slice(6)));
-        viewEvent.classList.remove('hidden');
-        window.scrollTo(0, 0);
-    } else {
-        document.title = 'Dayman Tent Rental & Event Planning | Thika, Kenya';
-        viewHome.classList.remove('hidden');
-        if (hash) {
-            const el = document.getElementById(hash);
-            if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 50);
+    var autoplay = setInterval(function () { nextBtn.click(); }, 5000);
+    track.addEventListener("mouseenter", function () { clearInterval(autoplay); });
+    track.addEventListener("mouseleave", function () {
+        autoplay = setInterval(function () { nextBtn.click(); }, 5000);
+    });
+    /* ---------------- MOBILE MENU ---------------- */
+    var menuToggle = document.getElementById("menuToggle");
+    var navMenu = document.querySelector(".nav-menu");
+    menuToggle.addEventListener("click", function () { navMenu.classList.toggle("active"); });
+    var navLinks = document.querySelectorAll(".nav-menu a");
+    for (var ni = 0; ni < navLinks.length; ni++) {
+        navLinks[ni].addEventListener("click", function () { navMenu.classList.remove("active"); });
+    }
+
+    /* ---------------- FIND HELPERS ---------------- */
+    function findTent(slug) {
+        for (var i = 0; i < TENTS.length; i++) {
+            if (TENTS[i].slug === slug) return TENTS[i];
+        }
+        return null;
+    }
+
+    function findEvent(slug) {
+        for (var i = 0; i < EVENTS.length; i++) {
+            if (EVENTS[i].slug === slug) return EVENTS[i];
+        }
+        return null;
+    }
+
+    /* ---------------- POPULATE TENT DETAIL VIEW ---------------- */
+    function showTent(slug) {
+        var t = findTent(slug);
+        var hero = document.getElementById("tentHero");
+
+        if (t) {
+            document.title = t.name + " | Dayman Tent Rental";
+            document.getElementById("tentTitle").textContent = t.name;
+            document.getElementById("tentDescription").textContent = t.description;
+            document.getElementById("tentCapacity").textContent = t.capacity;
+            document.getElementById("tentSize").textContent = t.size;
+            document.getElementById("tentBestFor").textContent = t.bestFor;
+            document.getElementById("tentPrice").textContent = t.priceFrom;
+            hero.style.backgroundImage = "url('" + t.heroImage + "')";
+
+            var message = "Hi Dayman, I'd like to enquire about renting the " + t.name + ".";
+            var waHref = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+            document.getElementById("tentWhatsappBtn").setAttribute("href", waHref);
+        } else {
+            document.title = "Tent Not Found | Dayman Tent Rental";
+            document.getElementById("tentTitle").textContent = "Tent Not Found";
+            document.getElementById("tentDescription").textContent = "We couldn't find that tent. Browse our full collection below.";
+            hero.style.backgroundImage = "url('https://images.unsplash.com/photo-1519457031057-7686c3aa7d5e?w=1400&h=700&fit=crop')";
         }
     }
-}
 
-function goHome(e) {
-    e.preventDefault();
-    window.location.hash = '';
-    route();
-    window.scrollTo(0, 0);
-}
+    /* ---------------- POPULATE EVENT DETAIL VIEW ---------------- */
+    function showEvent(slug) {
+        var ev = findEvent(slug);
+        var hero = document.getElementById("eventHero");
 
-function goHomeToSection(sectionId) {
-    window.location.hash = sectionId;
-}
+        if (ev) {
+            document.title = ev.title + " | Dayman Tent Rental";
+            document.getElementById("eventTitle").textContent = ev.title + " \u2013 " + ev.location + " " + ev.year;
+            document.getElementById("eventDescription").textContent = ev.description;
+            document.getElementById("eventTents").textContent = ev.tents;
+            document.getElementById("eventChairs").textContent = ev.chairs;
+            document.getElementById("eventSpace").textContent = ev.space;
+            document.getElementById("eventPrice").textContent = ev.price;
+            hero.style.backgroundImage = "url('" + ev.heroImage + "')";
 
-window.addEventListener('hashchange', route);
-window.addEventListener('DOMContentLoaded', route);
+            var message = "Hi Dayman, I'd like a " + ev.title + " setup similar to the one on your site.";
+            var waHref = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+            document.getElementById("eventWhatsappBtn").setAttribute("href", waHref);
+        } else {
+            document.title = "Event Not Found | Dayman Tent Rental";
+            document.getElementById("eventTitle").textContent = "Event Not Found";
+            document.getElementById("eventDescription").textContent = "We couldn't find that event. Browse our other past events below.";
+            hero.style.backgroundImage = "url('https://images.unsplash.com/photo-1519167758993-7e9b65eaa1b6?w=1400&h=700&fit=crop')";
+        }
+    }
+
+    /* ---------------- ROUTER ---------------- */
+    var viewHome = document.getElementById("view-home");
+    var viewTent = document.getElementById("view-tent");
+    var viewEvent = document.getElementById("view-event");
+
+    function route() {
+        var hash = window.location.hash.slice(1);
+        viewHome.classList.add("hidden");
+        viewTent.classList.add("hidden");
+        viewEvent.classList.add("hidden");
+
+        if (hash.indexOf("tent=") === 0) {
+            showTent(decodeURIComponent(hash.slice(5)));
+            viewTent.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        } else if (hash.indexOf("event=") === 0) {
+            showEvent(decodeURIComponent(hash.slice(6)));
+            viewEvent.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        } else {
+            document.title = "Dayman Tent Rental & Event Planning | Thika, Kenya";
+            viewHome.classList.remove("hidden");
+            if (hash) {
+                var el = document.getElementById(hash);
+                if (el) {
+                    setTimeout(function () { el.scrollIntoView({ behavior: "smooth" }); }, 50);
+                }
+            }
+        }
+    }
+
+    function goHome(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        window.location.hash = "";
+        route();
+        window.scrollTo(0, 0);
+    }
+
+    /* Wire up logo links back to home (tent + event views) */
+    document.querySelector(".tent-home-link").addEventListener("click", goHome);
+    document.querySelector(".event-home-link").addEventListener("click", goHome);
+    document.getElementById("logoHomeLink").addEventListener("click", goHome);
+
+    /* Wire up all footer/back "data-target" buttons */
+    var targetButtons = document.querySelectorAll("[data-target]");
+    for (var bi = 0; bi < targetButtons.length; bi++) {
+        targetButtons[bi].addEventListener("click", function () {
+            window.location.hash = this.getAttribute("data-target");
+        });
+    }
+
+    window.addEventListener("hashchange", route);
+    window.addEventListener("DOMContentLoaded", route);
+
+    /* In case DOMContentLoaded already fired before this script ran */
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+        route();
+    }
+})();
 </script>
 </body>
 </html>
