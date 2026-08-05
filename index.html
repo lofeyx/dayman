@@ -1178,5 +1178,15 @@ function closeContact() {
   document.getElementById("contactModal").style.display = "none";
 }
     </script>
+<script>
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    window.scrollTo(0, 0); // force back to top
+    history.replaceState(null, null, " "); // remove hash from URL
+  }
+});
+</script>
+</body>
+</html>
 </body>
 </html>
